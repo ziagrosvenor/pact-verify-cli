@@ -1,15 +1,16 @@
 import Promise from "bluebird"
 import {pipeP, tap} from "ramda"
-import {readFileFromArgV, bufferToStr, parsePactJson} from "./get-pact-file"
+import {bufferToStr} from "./utils"
+import {readPactJsonFile, parsePactJsonContract} from "./get-pact-file"
 import { createPactHelperFromContract,
- writePactFile} from "./create-pact-helper"
+ writePactHelperFile} from "./create-pact-helper"
 
 pipeP(
-  readFileFromArgV,
+  readPactJsonFile,
   bufferToStr,
-  parsePactJson,
+  parsePactJsonContract,
   createPactHelperFromContract,
-  writePactFile
+  writePactHelperFile
 )()
 .catch((err) => {
   console.log(err.stack)
