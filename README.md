@@ -14,6 +14,9 @@
     bundle install
     npm i
     
+### Terminology
+[Pact terminology wiki](https://github.com/realestate-com-au/pact/wiki/Terminology)
+    
 ### Current CLI implementation
     sh ./pact-verify ./tmp/pact-file.json http://localhost:3000 http://localhost:3001/setup
 
