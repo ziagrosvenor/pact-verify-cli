@@ -24,6 +24,7 @@ This is interface was designed in the documentation for [the `provider-state-ser
 This will receive the consumers name and the required `provider_state` for the next interaction that `pact:verify` will test.
 
 #### Example endpoint
+```javascript
     import server from "./server"
     import setupUserInDatabase from "./db"
 
@@ -42,6 +43,7 @@ This will receive the consumers name and the required `provider_state` for the n
         .then(() => res.send(200))
         .catch(() => res.send(500))
     })
+```
 
 #### Resources / Related Repositories
 - [pact](https://github.com/realestate-com-au/pact)
