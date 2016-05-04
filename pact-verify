@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+export PACT_FILE=$1
+export PROVIDER_URL=$2
+export SETUP_SERVER_URL=$3
+
+./node_modules/babel/bin/babel-node.js ./src/index.js $1 && bundle exec rake pact:verify:javascript

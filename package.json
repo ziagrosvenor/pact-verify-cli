@@ -1,0 +1,20 @@
+{
+  "name": "pact-verify-cli",
+  "version": "1.0.0",
+  "description": "A command line interface for Ruby - PACT",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve-watch": "./node_modules/babel/bin/babel-node.js ./src/index.js"
+  },
+  "author": "Zia Grosvenor",
+  "license": "Unlicense",
+  "dependencies": {
+    "babel": "^5.8.21",
+    "bluebird": "^3.3.5",
+    "ramda": "^0.21.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.0.4"
+  }
+}
