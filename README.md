@@ -20,7 +20,7 @@
 ### Current CLI implementation
     sh ./pact-verify ./tmp/pact-file.json http://localhost:3000 http://localhost:3001/setup
 
-### Better possible CLI implementation
+### Preferred CLI implementation
     pact-verify --pact=./tmp/pact-file.json
     --provider-url=http://localhost:3000
     --setup-url=http://localhost:3001/setup
