@@ -11,13 +11,12 @@
 - Delegate responsibility for handling the provider states over to a provider state server. This could be located inside the repository for the provider service.
 
 ### Current CLI implementation
-    sh ./pact-verify ./tmp/pact-file.json http://localhost:3001/setup
-    http://localhost:3000
+    sh ./pact-verify ./tmp/pact-file.json http://localhost:3000 http://localhost:3001/setup
 
 ### Better possible CLI implementation
     pact-verify --pact=./tmp/pact-file.json
-    --setup-url=http://localhost:3001/setup
     --provider-url=http://localhost:3000
+    --setup-url=http://localhost:3001/setup
 
 This is interface was designed in the documentation for [the `provider-state-server-poc` repository of Github](https://github.com/bethesque/provider-state-server-poc)
 
