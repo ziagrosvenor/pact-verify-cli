@@ -32,24 +32,24 @@ This will receive the consumers name and the required `provider_state` for the n
 
 #### Example endpoint
 ```javascript
-    import server from "./server"
-    import setupUserInDatabase from "./db"
+import server from "./server"
+import setupUserInDatabase from "./db"
 
-    const providerStates = {
-      CONSUMER_NAME: {
-          ACTIVE_USER: () => {
-            return setupUserInDatabase()
-          }
-      }
+const providerStates = {
+  CONSUMER_NAME: {
+    ACTIVE_USER: () => {
+      return setupUserInDatabase()
     }
+  }
+}
 
-    server.post("/setup", function postSetupState(req, res) {
-      const {consumerName, providerState} = req.body
-
-      providerStates[consumerName][providerState]
-        .then(() => res.send(200))
-        .catch(() => res.send(500))
-    })
+server.post("/setup", function postSetupState(req, res) {
+  const {consumerName, providerState} = req.body
+  
+  providerStates[consumerName][providerState]
+    .then(() => res.send(200))
+    .catch(() => res.send(500))
+})
 ```
 
 #### Resources / Related Repositories
