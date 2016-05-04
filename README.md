@@ -10,6 +10,10 @@
 
 - Delegate responsibility for handling the provider states over to a provider state server. This could be located inside the repository for the provider service.
 
+### Installation
+    bundle install
+    npm i
+    
 ### Current CLI implementation
     sh ./pact-verify ./tmp/pact-file.json http://localhost:3000 http://localhost:3001/setup
 
