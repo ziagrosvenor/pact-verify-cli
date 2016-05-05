@@ -18,12 +18,12 @@ Pact.configure do | config |
 end
 
 
-
-
 Pact.provider_states_for "CONSUMER" do
+  
   provider_state "active_user" do
     set_up do
       set_up_state "CONSUMER", "active_user"
     end
   end
+  
 end
