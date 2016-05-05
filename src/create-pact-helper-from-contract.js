@@ -13,7 +13,4 @@ export default function () {
     createPactHelperFromContract,
     writePactHelperFile
   )()
-  .catch((err) => {
-    console.log(err.stack)
-  })
 }
