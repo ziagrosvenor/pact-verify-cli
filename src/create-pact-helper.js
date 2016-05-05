@@ -16,11 +16,12 @@ export function createPactHelperFromContract(contractObj) {
   return readPactHelperBase()
     .then(bufferToStr)
     .then((str) => {
-      const providerStatesRubyStr = map(
-        providerStateTemplate(contractObj.consumer.name),
-        map(path(["provider_state"]), contractObj.interactions)
+      const providerStatesArray = map(path(["provider_state"]), contractObj.interactions)
+      const providerStatesRubyStr = providerStateTemplate(
+        contractObj.consumer.name,
+        providerStatesArray
       )
 
-      return str + "\n\n" + providerStatesRubyStr.join("\n")
+      return str + providerStatesRubyStr
     })
 }
