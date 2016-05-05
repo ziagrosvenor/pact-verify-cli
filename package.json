@@ -4,7 +4,7 @@
   "description": "A command line interface for Ruby - PACT",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/mocha/bin/_mocha --opts ./test/mocha.opts",
     "serve-watch": "./node_modules/babel/bin/babel-node.js ./src/index.js"
   },
   "author": "Zia Grosvenor",
@@ -15,6 +15,8 @@
     "ramda": "^0.21.0"
   },
   "devDependencies": {
-    "babel-eslint": "^6.0.4"
+    "babel-eslint": "^6.0.4",
+    "chai": "^3.5.0",
+    "mocha": "^2.2.5"
   }
 }

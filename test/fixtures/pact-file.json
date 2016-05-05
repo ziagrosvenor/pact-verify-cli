@@ -1,0 +1,47 @@
+{
+  "consumer": {
+    "name": "CONSUMER"
+  },
+  "provider": {
+    "name": "PROVIDER"
+  },
+  "interactions": [
+    {
+      "description": "get_payload",
+      "provider_state": "active_user",
+      "request": {
+        "method": "get",
+        "path": "/user",
+        "headers": {
+          "content-type": "application/json",
+          "content-length": "185"
+        },
+        "body": {
+          "name": "Fred"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "payload": {
+            "json_class": "Pact::Term",
+            "data": {
+              "generate": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+              "matcher": {
+                "json_class": "Regexp",
+                "o": 0,
+                "s": "^[A-Za-z0-9\\-_]*$"
+              }
+            }
+          } 
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "1.0.0"
+  }
+}
