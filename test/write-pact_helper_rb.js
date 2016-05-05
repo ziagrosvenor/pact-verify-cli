@@ -4,7 +4,7 @@ import createPactHelperFromContract from "../src/create-pact-helper-from-contrac
 import {bufferToStr} from "../src/utils"
 
 const fs = Promise.promisifyAll(require("fs"))
-const pactHelperFileFixure =
+const pactHelperFileFixture =
   bufferToStr(fs.readFileSync(__dirname + "/fixtures/pact_helper.rb"))
 
 function readOutputPactHelper() {
@@ -23,7 +23,7 @@ describe("writing a pact_helper.rb based on pact-file.json", function() {
       .then((outputPactHelperStr) => {
         expect(outputPactHelperStr)
           .to
-          .equal(pactHelperFileFixure)
+          .equal(pactHelperFileFixture)
       })
   })
 })
