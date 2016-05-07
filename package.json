@@ -6,7 +6,9 @@
   "scripts": {
     "postinstall": "bundle install"
   },
-  "bin": "./bin",
+  "bin": {
+    "pact-verify": "./bin/pact-verify"
+  },
   "author": "Zia Grosvenor",
   "license": "Unlicense"
 }
