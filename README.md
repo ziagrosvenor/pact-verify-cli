@@ -94,7 +94,7 @@ const providerStates = {
 server.post("/setup", function postSetupState(req, res) {
   const {consumer, provider_state} = req.body
 
-  providerStates[consumer][provider_state]
+  providerStates[consumer][provider_state]()
     .then(() => res.send(200))
     .catch(() => res.send(500))
 })
