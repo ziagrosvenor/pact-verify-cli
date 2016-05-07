@@ -26,9 +26,17 @@
     $ export GOPATH=`pwd`
     $ PATH=$PATH:$GOPATH/bin
 
-You may want to add this to your ~/.bash_profile
+You may want to add this to your `~/.bash_profile`
+
     $ export GOPATH=/path/to/pact-verify-cli
     $ PATH=$PATH:$GOPATH/bin
+
+### Usability issues / bugs
+When the `--pact` option is given a path like `/directory/file.json` it interprets it as `./directory/file.json`.
+
+Paths with a single dot character like `./directory/file.json` will break the CLI.
+
+For paths like `../directory/file.json` it works.
 
 ## CLI
 
