@@ -10,15 +10,25 @@
 
 - Delegate responsibility for handling the provider states over to a provider state server. This could be located inside the repository for the provider service.
 
-## Installation
+## NPM Installation
     $ gem install bundler
-    $ npm i
+    $ npm i pact-verify-cli -g
 
       > pact-verify-cli@1.3.3 postinstall /Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
-      > bundle install
-
+      > bundle install && mkdir ./tmp
 
     $ export GOPATH=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
+
+## Installation via Github
+    $ git clone git@github.com:ziagrosvenor/pact-verify-cli.git
+    $ cd ./pact-verify-cli
+    $ bundle install
+    $ export GOPATH=`pwd`
+    $ PATH=$PATH:$GOPATH/bin
+
+You may want to add this to your ~/.bash_profile
+    $ export GOPATH=/path/to/pact-verify-cli
+    $ PATH=$PATH:$GOPATH/bin
 
 ## CLI
 
