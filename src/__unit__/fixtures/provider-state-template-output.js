@@ -1,1 +1,0 @@
-export default '\nPact.provider_states_for "CONSUMER_NAME" do\n  \n  provider_state "STATE_1" do\n    set_up do\n      set_up_state "CONSUMER_NAME", "STATE_1"\n    end\n  end\n  ,\n  provider_state "STATE_2" do\n    set_up do\n      set_up_state "CONSUMER_NAME", "STATE_2"\n    end\n  end\n  \nend\n'
