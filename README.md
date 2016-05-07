@@ -20,13 +20,15 @@
 ### Terminology
 [Pact terminology wiki](https://github.com/realestate-com-au/pact/wiki/Terminology)
     
-### Current CLI implementation
-    sh ./pact-verify ./tmp/pact-file.json http://localhost:3000 http://localhost:3001/setup
+### CLI 
+# Verify a Pact file with provider service
+The provider state and consumer name are sent to the setup URL in a POST request
 
-### Preferred CLI implementation
-    pact-verify --pact=./tmp/pact-file.json
-    --provider-url=http://localhost:3000
-    --setup-url=http://localhost:3001/setup
+    verify --pact /tmp/pacts/pact-file.json --provider http://localhost:3000 --setup http://localhost:3001
+
+# Help
+
+    verify help
 
 This is interface was designed in the documentation for [the `provider-state-server-poc` repository of Github](https://github.com/bethesque/provider-state-server-poc)
 
