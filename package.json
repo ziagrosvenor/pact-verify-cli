@@ -6,9 +6,7 @@
   "scripts": {
     "postinstall": "bundle install"
   },
-  "bin": {
-    "verify": "./bin/verify"
-  },
+  "bin": "/bin/verify",
   "author": "Zia Grosvenor",
   "license": "Unlicense"
 }
