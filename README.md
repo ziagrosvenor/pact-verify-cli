@@ -10,27 +10,27 @@
 
 - Delegate responsibility for handling the provider states over to a provider state server. This could be located inside the repository for the provider service.
 
-### Installation
+## Installation
     export GOROOT=$HOME/Sites/pact-verify-cli
     export PATH=$PATH:$GOROOT/bin
 
     bundle install
     go install verify
     
-### Terminology
-[Pact terminology wiki](https://github.com/realestate-com-au/pact/wiki/Terminology)
-    
-### CLI 
-# Verify a Pact file with provider service
+## CLI 
+#### Verify a Pact file with provider service
 The provider state and consumer name are sent to the setup URL in a POST request
 
     verify --pact /tmp/pacts/pact-file.json --provider http://localhost:3000 --setup http://localhost:3001
 
-# Help
+#### Help
 
     verify help
 
 This is interface was designed in the documentation for [the `provider-state-server-poc` repository of Github](https://github.com/bethesque/provider-state-server-poc)
+
+### Terminology
+[Pact terminology wiki](https://github.com/realestate-com-au/pact/wiki/Terminology)
 
 ### Provider state setup server
 This will receive the consumers name and the required `provider_state` for the next interaction that `pact:verify` will test.
