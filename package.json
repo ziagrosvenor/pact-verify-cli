@@ -4,7 +4,7 @@
   "description": "A command line interface for Ruby - PACT",
   "main": "",
   "scripts": {
-    "postinstall": "bundle install && export PATH=$PATH:`pwd`/lib/node_modules/pact-verify-cli/bin"
+    "postinstall": "bundle install && export PATH=$PATH:`pwd`/bin"
   },
   "author": "Zia Grosvenor",
   "license": "Unlicense"
