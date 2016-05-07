@@ -19,6 +19,10 @@
 
     $ export GOPATH=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
 
+You may want to add this to your `~/.bash_profile`
+
+    export GOPATH=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
+
 ## Installation via Github
     $ git clone git@github.com:ziagrosvenor/pact-verify-cli.git
     $ cd ./pact-verify-cli
