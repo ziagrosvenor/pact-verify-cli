@@ -99,7 +99,7 @@ func main() {
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:        "pact",
-			Usage:       "Load Pact JSON from `FILE`",
+			Usage:       "Read from disc and process a Pact JSON file from `PATH`",
 			Destination: &pactFilePath,
 		},
 
@@ -121,12 +121,22 @@ func main() {
 	app.Action = func(c *cli.Context) error {
 
 		if pactFilePath == "" {
-			fmt.Printf("\nEXITED \nPact file path required i.e /tmp/pacts/pact.json \n\n")
+			fmt.Printf("\nEXITED \nA Pact file path required i.e /tmp/pacts/pact.json \n\n")
+
+			cmd := exec.Command("verify", "help")
+			cmd.Stdout = os.Stdout
+			cmd.Stderr = os.Stderr
+			cmd.Run()
 			return nil
 		}
 
 		if providerUrl == "" {
 			fmt.Printf("\nEXITED \nProvider url required\n\n")
+
+			cmd := exec.Command("verify", "help")
+			cmd.Stdout = os.Stdout
+			cmd.Stderr = os.Stderr
+			cmd.Run()
 			return nil
 		}
 
