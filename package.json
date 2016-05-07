@@ -1,7 +1,7 @@
 {
   "name": "pact-verify-cli",
   "version": "1.3.7",
-  "description": "A command line interface for Ruby - PACT",
+  "description": "A command line interface for verifying Pacts",
   "main": "",
   "scripts": {
     "postinstall": "bundle install && mkdir ./tmp"
@@ -10,5 +10,10 @@
     "pact-verify": "./bin/pact-verify"
   },
   "author": "Zia Grosvenor",
-  "license": "Unlicense"
+  "license": "Unlicense",
+  "repository" :
+  { "type" : "git"
+    , "url" : "https://github.com/ziagrosvenor/pact-verify-cli.git"
+  },
+  "os" : [ "darwin", "linux" ]
 }
