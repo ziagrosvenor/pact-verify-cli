@@ -4,8 +4,9 @@
   "description": "A command line interface for Ruby - PACT",
   "main": "",
   "scripts": {
-    "postinstall": "bundle install && export PATH=$PATH:`pwd`/bin"
+    "postinstall": "bundle install"
   },
+  "bin": "./bin",
   "author": "Zia Grosvenor",
   "license": "Unlicense"
 }
