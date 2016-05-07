@@ -33,6 +33,27 @@ var template = `
   end
 `
 
+var pactHelperBaseStr = `
+require 'faraday'
+require 'cgi'
+
+PROVIDER_STATE_SERVER_SET_UP_URL = ENV["SETUP_SERVER_URL"] 
+
+# Responsible for making the call to the provider state server to set up the state
+module ProviderStateServerClient
+
+  def set_up_state consumer_name, provider_state
+    puts "Setting up provider state '#{provider_state}' using provider state server at #{PROVIDER_STATE_SERVER_SET_UP_URL}"
+    Faraday.post(PROVIDER_STATE_SERVER_SET_UP_URL, {"consumer" => consumer_name, "provider_state" => provider_state })
+  end
+
+end
+
+Pact.configure do | config |
+  config.include ProviderStateServerClient
+end
+`
+
 func getRootDirPath() string {
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	check(err)
@@ -45,11 +66,6 @@ func buildPactHelperFromPactJson(pactFilePath string) string {
 
 	dat, err := ioutil.ReadFile(dir + pactFilePath)
 	check(err)
-
-	pactHelperBase, err := ioutil.ReadFile(dir + "/src/pact_helper_base.rb")
-	check(err)
-
-	pactHelperBaseStr := string(pactHelperBase)
 
 	var pact map[string]interface{}
 
@@ -81,10 +97,9 @@ func buildPactHelperFromPactJson(pactFilePath string) string {
 	return pactHelperRubyStr
 }
 
-func writePactHelperFile(pactHelperStr string) {
-	var dir = getRootDirPath()
+func writePactHelperFile(ROOT_DIR string, pactHelperStr string) {
 	d1 := []byte(pactHelperStr)
-	err := ioutil.WriteFile(dir+"/tmp/pact_helper.rb", d1, 0644)
+	err := ioutil.WriteFile(ROOT_DIR+"/tmp/pact_helper.rb", d1, 0644)
 	check(err)
 }
 
@@ -140,10 +155,21 @@ func main() {
 			return nil
 		}
 
-		var dir = getRootDirPath()
+		var ROOT_DIR = os.Getenv("GOPATH")
+		var PWD = getRootDirPath()
+
 		var pactHelperStr = buildPactHelperFromPactJson(pactFilePath)
-		writePactHelperFile(pactHelperStr)
-		cmd := exec.Command("sh", dir+"/bin/run-pact-verify.sh", "."+pactFilePath, providerUrl, stateServerUrl)
+		writePactHelperFile(ROOT_DIR, pactHelperStr)
+
+		cmd := exec.Command(
+			"sh",
+			ROOT_DIR+"/bin/run-pact-verify.sh",
+			PWD+pactFilePath,
+			providerUrl,
+			stateServerUrl,
+			os.Getenv("GOPATH"),
+		)
+
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 		cmd.Run()

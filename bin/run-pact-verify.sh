@@ -2,5 +2,6 @@
 export PACT_FILE=$1
 export PROVIDER_URL=$2
 export SETUP_SERVER_URL=$3
+export PACT_VERIFY_CLI=$4
 
-bundle exec rake pact:verify:javascript
+cd $4 && bundle exec rake pact:verify:javascript
