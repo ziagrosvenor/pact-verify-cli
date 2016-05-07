@@ -11,8 +11,11 @@
 - Delegate responsibility for handling the provider states over to a provider state server. This could be located inside the repository for the provider service.
 
 ### Installation
+    export GOROOT=$HOME/Sites/pact-verify-cli
+    export PATH=$PATH:$GOROOT/bin
+
     bundle install
-    npm i
+    go install verify
     
 ### Terminology
 [Pact terminology wiki](https://github.com/realestate-com-au/pact/wiki/Terminology)
