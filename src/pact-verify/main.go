@@ -164,7 +164,7 @@ func main() {
 		cmd := exec.Command(
 			"sh",
 			ROOT_DIR+"/bin/run-pact-verify.sh",
-			PWD+pactFilePath,
+			PWD+"/"+pactFilePath,
 			providerUrl,
 			stateServerUrl,
 			os.Getenv("GOPATH"),
