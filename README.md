@@ -18,8 +18,26 @@
     go install verify
     
 ## CLI 
-#### Verify a Pact file with provider service
-The provider state and consumer name are sent to the setup URL in a POST request
+
+    NAME:
+        verify - Command line interface for Pact verification
+
+    USAGE:
+        verify [global options] command [command options] [arguments...]
+        
+    VERSION:
+        0.0.0
+        
+    COMMANDS:
+    GLOBAL OPTIONS:
+        --pact FILE				Load Pact JSON from FILE
+        --provider value, --prov value	The URL of the provider service that the pact will be verified against
+        --setup value, -s value		The URL of the provider state server - This is used to process provider states
+        --help, -h				show help
+        --version, -v			print the version
+
+#### Verify a Pact file with the provider service
+The `providerState` and `consumerName` are sent to the setup URL in a POST request.
 
     verify --pact /tmp/pacts/pact-file.json --provider http://localhost:3000 --setup http://localhost:3001
 
