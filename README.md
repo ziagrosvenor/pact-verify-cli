@@ -37,7 +37,7 @@
         --version, -v			print the version
 
 #### Verify a Pact file with the provider service
-The `providerState` and `consumerName` are sent to the setup URL in a POST request.
+The `provider_state` and `consumer` are sent to the setup URL in a POST request.
 
     verify --pact /tmp/pacts/pact-file.json --provider http://localhost:3000 --setup http://localhost:3001
 
@@ -67,9 +67,9 @@ const providerStates = {
 }
 
 server.post("/setup", function postSetupState(req, res) {
-  const {consumerName, providerState} = req.body
+  const {consumer, provider_state} = req.body
   
-  providerStates[consumerName][providerState]
+  providerStates[consumer][provider_state]
     .then(() => res.send(200))
     .catch(() => res.send(500))
 })
