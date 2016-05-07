@@ -138,7 +138,7 @@ func main() {
 		if pactFilePath == "" {
 			fmt.Printf("\nEXITED \nA Pact file path required i.e /tmp/pacts/pact.json \n\n")
 
-			cmd := exec.Command("verify", "help")
+			cmd := exec.Command("pact-verify", "help")
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
 			cmd.Run()
@@ -148,7 +148,7 @@ func main() {
 		if providerUrl == "" {
 			fmt.Printf("\nEXITED \nProvider url required\n\n")
 
-			cmd := exec.Command("verify", "help")
+			cmd := exec.Command("pact-verify", "help")
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
 			cmd.Run()
@@ -167,7 +167,7 @@ func main() {
 			PWD+"/"+pactFilePath,
 			providerUrl,
 			stateServerUrl,
-			os.Getenv("GOPATH"),
+			ROOT_DIR,
 		)
 
 		cmd.Stdout = os.Stdout
