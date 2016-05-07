@@ -11,23 +11,34 @@
 - Delegate responsibility for handling the provider states over to a provider state server. This could be located inside the repository for the provider service.
 
 ## Installation
-    export GOROOT=$HOME/Sites/pact-verify-cli
-    export PATH=$PATH:$GOROOT/bin
+    $ gem install bundler
+    $ npm i
 
-    bundle install
-    go install verify
-    
-## CLI 
+      > pact-verify-cli@1.3.3 postinstall /Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
+      > bundle install
 
+
+    $ export GOPATH=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
+
+## CLI
+
+#### Verify a Pact file with the provider service
+The `provider_state` and `consumer` are sent to the setup URL in a POST request.
+
+    $ pact-verify --pact /tmp/pacts/pact-file.json --provider http://localhost:3000 --setup http://localhost:3001
+
+#### Help
+
+    $ pact-verify help
     NAME:
         verify - Command line interface for Pact verification
 
     USAGE:
         verify [global options] command [command options] [arguments...]
-        
+
     VERSION:
         0.0.0
-        
+
     COMMANDS:
     GLOBAL OPTIONS:
         --pact FILE				Load Pact JSON from FILE
@@ -36,14 +47,6 @@
         --help, -h				show help
         --version, -v			print the version
 
-#### Verify a Pact file with the provider service
-The `provider_state` and `consumer` are sent to the setup URL in a POST request.
-
-    verify --pact /tmp/pacts/pact-file.json --provider http://localhost:3000 --setup http://localhost:3001
-
-#### Help
-
-    verify help
 
 This is interface was designed in the documentation for [the `provider-state-server-poc` repository of Github](https://github.com/bethesque/provider-state-server-poc)
 
@@ -68,7 +71,7 @@ const providerStates = {
 
 server.post("/setup", function postSetupState(req, res) {
   const {consumer, provider_state} = req.body
-  
+
   providerStates[consumer][provider_state]
     .then(() => res.send(200))
     .catch(() => res.send(500))
