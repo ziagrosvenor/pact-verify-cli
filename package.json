@@ -1,14 +1,14 @@
 {
   "name": "pact-verify-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A command line interface for Ruby - PACT",
-  "main": "./bin/verify",
+  "main": "",
   "scripts": {
+    "postinstall" : "bundle install"
+  },
+  "bin": {
+    "verify": "./bin/verify"
   },
   "author": "Zia Grosvenor",
-  "license": "Unlicense",
-  "dependencies": {
-  },
-  "devDependencies": {
-  }
+  "license": "Unlicense"
 }
