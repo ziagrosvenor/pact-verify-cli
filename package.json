@@ -1,6 +1,6 @@
 {
   "name": "pact-verify-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A command line interface for Ruby - PACT",
   "main": "",
   "scripts": {
