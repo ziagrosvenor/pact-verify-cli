@@ -24,6 +24,7 @@ You may want to add this to your `~/.bash_profile`
     export GOPATH=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
 
 ## Installation via Github
+    $ gem install bundler
     $ git clone git@github.com:ziagrosvenor/pact-verify-cli.git
     $ cd ./pact-verify-cli
     $ bundle install
@@ -36,11 +37,7 @@ You may want to add this to your `~/.bash_profile`
     $ PATH=$PATH:$GOPATH/bin
 
 ### Usability issues / bugs
-When the `--pact` option is given a path like `/directory/file.json` it interprets it as `./directory/file.json`.
-
-Paths with a single dot character like `./directory/file.json` will break the CLI.
-
-For paths like `../directory/file.json` it works.
+This project is still in active development. Please report any issues found on the Github repository. Also feel free to contact by email.
 
 ## CLI
 
