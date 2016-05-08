@@ -17,24 +17,24 @@
       > pact-verify-cli@1.3.3 postinstall /Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
       > bundle install && mkdir ./tmp
 
-    $ export GOPATH=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
+    $ export CLI_SRC_DIR=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
 
 You may want to add this to your `~/.bash_profile`
 
-    export GOPATH=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
+    export CLI_SRC_DIR=/Users/zia.grosvenor/.nvm/versions/node/v0.12.7/lib/node_modules/pact-verify-cli
 
 ## Installation via Github
     $ gem install bundler
     $ git clone git@github.com:ziagrosvenor/pact-verify-cli.git
     $ cd ./pact-verify-cli
     $ bundle install
-    $ export GOPATH=`pwd`
-    $ PATH=$PATH:$GOPATH/bin
+    $ export CLI_SRC_DIR=`pwd`
+    $ PATH=$PATH:$CLI_SRC_DIR/bin
 
 You may want to add this to your `~/.bash_profile`
 
-    $ export GOPATH=/path/to/pact-verify-cli
-    $ PATH=$PATH:$GOPATH/bin
+    $ export CLI_SRC_DIR=/path/to/pact-verify-cli
+    $ PATH=$PATH:$CLI_SRC_DIR/bin
 
 ### Usability issues / bugs
 This project is still in active development. Please report any issues found on the Github repository. Also feel free to contact by email.

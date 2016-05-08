@@ -14,7 +14,7 @@ import (
 )
 
 func buildPactHelperFromPactJson(pactFilePath string) string {
-	var dir = getRootDirPath()
+	var dir = getPwd()
 
 	dat, err := ioutil.ReadFile(path.Join(dir, pactFilePath))
 	check(err)
@@ -106,8 +106,8 @@ func main() {
 			return cli.NewExitError("\nEXITED \nA provider states setup service URL is required\n", 86)
 		}
 
-		var ROOT_DIR = os.Getenv("GOPATH")
-		var PWD = getRootDirPath()
+		var ROOT_DIR = getSrcDir()
+		var PWD = getPwd()
 
 		var pactHelperStr = buildPactHelperFromPactJson(pactFilePath)
 		writePactHelperFile(ROOT_DIR, pactHelperStr)
@@ -146,11 +146,21 @@ func check(e error) {
 	}
 }
 
-func getRootDirPath() string {
+func getPwd() string {
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	check(err)
 
 	return dir
+}
+
+func getSrcDir() string {
+	var env = os.Getenv("CLI_SRC_DIR")
+
+	if env != "" {
+		return env
+	}
+
+	return os.Getenv("GOPATH")
 }
 
 var pactHelperTemplate = `
