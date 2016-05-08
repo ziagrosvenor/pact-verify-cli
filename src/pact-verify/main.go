@@ -9,13 +9,14 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"path"
 	"path/filepath"
 )
 
 func buildPactHelperFromPactJson(pactFilePath string) string {
 	var dir = getRootDirPath()
 
-	dat, err := ioutil.ReadFile(dir + pactFilePath)
+	dat, err := ioutil.ReadFile(path.Join(dir, pactFilePath))
 	check(err)
 
 	var pact map[string]interface{}
@@ -50,7 +51,7 @@ func buildPactHelperFromPactJson(pactFilePath string) string {
 
 func writePactHelperFile(ROOT_DIR string, pactHelperStr string) {
 	d1 := []byte(pactHelperStr)
-	err := ioutil.WriteFile(ROOT_DIR+"/tmp/pact_helper.rb", d1, 0644)
+	err := ioutil.WriteFile(path.Join(ROOT_DIR, "/tmp/pact_helper.rb"), d1, 0644)
 	check(err)
 }
 
@@ -113,8 +114,8 @@ func main() {
 
 		cmd := exec.Command(
 			"sh",
-			ROOT_DIR+"/bin/run-pact-verify.sh",
-			PWD+"/"+pactFilePath,
+			path.Join(ROOT_DIR, "/bin/run-pact-verify.sh"),
+			path.Join(PWD, pactFilePath),
 			providerUrl,
 			stateServerUrl,
 			ROOT_DIR,
