@@ -50,21 +50,21 @@ The `provider_state` and `consumer` are sent to the setup URL in a POST request.
 
     $ pact-verify help
     NAME:
-        verify - Command line interface for Pact verification
+       verify - Command line interface for Pact verification
 
     USAGE:
-        verify [global options] command [command options] [arguments...]
+       pact-verify [global options] command [command options] [arguments...]
 
     VERSION:
-        0.0.0
+       0.0.0
 
     COMMANDS:
     GLOBAL OPTIONS:
-        --pact FILE				Load Pact JSON from FILE
-        --provider value, --prov value	The URL of the provider service that the pact will be verified against
-        --setup value, -s value		The URL of the provider state server - This is used to process provider states
-        --help, -h				show help
-        --version, -v			print the version
+       --pact PATH			Read a Pact file from PATH and process it
+       --provider URL, --prov URL	The URL of the provider service to verify the pact with
+       --setup URL, -s URL		The URL of the provider state server - This is used to process provider states
+       --help, -h			show help
+       --version, -v		print the version
 
 
 This is interface was designed in the documentation for [the `provider-state-server-poc` repository of Github](https://github.com/bethesque/provider-state-server-poc)
