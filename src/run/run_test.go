@@ -7,11 +7,11 @@ import (
 	"testing"
 )
 
+var srcDir = os.Getenv("CLI_SRC_DIR")
+
 func TestBuildPactHelperFromPactJson(t *testing.T) {
 	var pactStr string
-	var srcDir = os.Getenv("CLI_SRC_DIR")
-
-	pactStr = BuildPactHelperFromPactJson(srcDir, "./tmp/pacts/pact-file.json")
+	pactStr = BuildPactHelperFromPactJson(srcDir, "./test/fixtures/pact-file.json")
 	matched, err := regexp.MatchString(pactStr, outputPactHelper)
 
 	if err != nil {

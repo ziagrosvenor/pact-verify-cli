@@ -4,7 +4,8 @@
   "description": "A command line interface for verifying Pacts",
   "main": "",
   "scripts": {
-    "postinstall": "bundle install && mkdir ./tmp"
+    "postinstall": "bundle install && mkdir ./tmp",
+    "test": "export CLI_SRC_DIR=`pwd` && go test run"
   },
   "bin": {
     "pact-verify": "./bin/pact-verify"
