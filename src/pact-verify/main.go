@@ -10,7 +10,7 @@ import (
 	"run"
 )
 
-func printHelp() {
+func PrintHelp() {
 	cmd := exec.Command("pact-verify", "help")
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
