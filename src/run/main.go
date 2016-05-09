@@ -39,8 +39,6 @@ func BuildPactHelperFromPactJson(dir string, pactFilePath string) string {
 	var consumerName = consumer["name"].(string)
 	var interactions = pact["interactions"].([]interface{})
 
-	fmt.Println(interactions)
-
 	return TemplatePactHelper(consumerName, interactions)
 }
 
