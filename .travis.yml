@@ -7,4 +7,4 @@ install:
   - go get github.com/stretchr/testify/assert
   - go get github.com/codegangsta/cli
 
-script: export GOPATH=`pwd` && go test pact-verify && go test run
+script: sh ./test/run-tests.sh
