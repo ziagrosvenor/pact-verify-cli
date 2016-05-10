@@ -1,5 +1,7 @@
 # Pact Verify CLI
 
+[![Build Status](https://travis-ci.org/ziagrosvenor/pact-verify-cli.svg?branch=master)](https://travis-ci.org/ziagrosvenor/pact-verify-cli)
+
 ## Features / Objectives
 
 - Retrieve Pact JSON contracts from the file system.
