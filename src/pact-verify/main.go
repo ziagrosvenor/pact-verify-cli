@@ -45,7 +45,7 @@ func main() {
 		},
 	}
 
-	app.Name = "verify"
+	app.Name = "pact-verify"
 	app.Usage = "Command line interface for Pact verification"
 	app.Action = func(c *cli.Context) error {
 		if pactFilePath == "" {
@@ -60,8 +60,8 @@ func main() {
 			return cli.NewExitError("\nEXITED \nA provider states setup service URL is required\n", 86)
 		}
 
-		var ROOT_DIR = getSrcDir()
-		var PWD = getPwd()
+		var ROOT_DIR = GetSrcDir()
+		var PWD = GetPwd()
 
 		var pactHelperStr = run.BuildPactHelperFromPactJson(PWD, pactFilePath)
 		run.WritePactHelperFile(ROOT_DIR, pactHelperStr)
@@ -89,14 +89,14 @@ func check(e error) {
 	}
 }
 
-func getPwd() string {
+func GetPwd() string {
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	check(err)
 
 	return dir
 }
 
-func getSrcDir() string {
+func GetSrcDir() string {
 	var env = os.Getenv("CLI_SRC_DIR")
 
 	if env != "" {
