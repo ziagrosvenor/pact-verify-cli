@@ -3,10 +3,10 @@ package main
 import (
 	"fmt"
 	"github.com/codegangsta/cli"
+	"github.com/ziagrosvenor/pact-verify-cli/src/pact-verify/run"
 	"log"
 	"os"
 	"os/exec"
-	"pact-verify/run"
 	"path/filepath"
 )
 
