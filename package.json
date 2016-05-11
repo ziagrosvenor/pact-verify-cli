@@ -5,7 +5,7 @@
   "main": "",
   "scripts": {
     "postinstall": "bundle install && mkdir ./tmp",
-    "test": "export CLI_SRC_DIR=`pwd` && go test run && go test pact-verify",
+    "test": "export CLI_SRC_DIR=`pwd` && go test pact-verify/run && go test pact-verify",
     "verify-test-pact": "export CLI_SRC_DIR=`pwd` && ./bin/pact-verify --pact ../test/fixtures/pact-file.json --prov http://localhost:3000 --setup http://localhost:3001"
   },
   "bin": {

@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 	"os/exec"
+	"pact-verify/run"
 	"path/filepath"
-	"run"
 )
 
 func PrintHelp() {
